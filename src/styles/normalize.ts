@@ -1,6 +1,6 @@
-import { css } from '@emotion/core'
+import { css } from 'styled-components'
 
-const normalize = css`
+const NormalizeStyles = css`
   /*! modern-normalize | MIT License | https://github.com/sindresorhus/modern-normalize */
 
   /* Document
@@ -286,4 +286,4 @@ const normalize = css`
   }
 `
 
-export default normalize
+export default NormalizeStyles

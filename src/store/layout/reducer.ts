@@ -1,4 +1,4 @@
-import { Reducer } from 'redux';
+import { Reducer } from 'redux'
 import { LayoutState, LayoutActionTypes } from './types'
 
 export const initialState: LayoutState = {
@@ -6,7 +6,7 @@ export const initialState: LayoutState = {
 }
 
 const reducer: Reducer<LayoutState> = (state = initialState, action) => {
-    switch (action.type) {
+  switch (action.type) {
     case LayoutActionTypes.SET_THEME: {
       return { ...state, theme: action.payload }
     }

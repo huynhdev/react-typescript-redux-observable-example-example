@@ -1,6 +1,8 @@
-import { css } from '@emotion/core'
+import { createGlobalStyle } from 'styled-components'
+import NormalizeStyles from './normalize'
 
-const globals = css`
+const GlobalStyles = createGlobalStyle`
+  ${NormalizeStyles}
   body {
     width: 100%;
     overflow-x: hidden;
@@ -38,4 +40,4 @@ const globals = css`
   }
 `
 
-export default globals
+export default GlobalStyles

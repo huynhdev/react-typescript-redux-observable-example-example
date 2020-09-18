@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react'
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'connected-react-router'
+import { Store } from 'redux'
+import { History } from 'history'
+import { ThemeProvider } from 'emotion-theming'
+import { ApplicationState } from './store'
+import LayoutContainer from './containers/LayoutContainer'
+import * as themes from './styles/theme'
+import Routes from './routes'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+interface AppProps {
+  store: Store<ApplicationState>
+  history: History
 }
 
-export default App;
+const App: React.FC<AppProps> = ({ store, history }) => {
+  return (
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <LayoutContainer>
+          {({ theme }) => (
+            <ThemeProvider theme={themes[theme]}>
+              <Routes />
+            </ThemeProvider>
+          )}
+        </LayoutContainer>
+      </ConnectedRouter>
+    </Provider>
+  )
+}
+
+export default App

@@ -2,8 +2,11 @@ import { createGlobalStyle } from 'styled-components'
 import NormalizeStyles from './normalize'
 
 const GlobalStyles = createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap');
   ${NormalizeStyles}
   body {
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     width: 100%;
     overflow-x: hidden;
     overflow-y: scroll;

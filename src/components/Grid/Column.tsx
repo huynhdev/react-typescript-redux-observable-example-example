@@ -15,6 +15,8 @@ interface WidthProps {
 
 const Column = styled.div`
   float: left;
+  padding-right: 15px;
+  padding-left: 15px;
   ${(props: WidthProps) => (props.xs ? getWidthString(props.xs) : 'width: 100%')}
   @media only screen and (min-width: 768px) {
     ${(props: WidthProps) => props.sm && getWidthString(props.sm)}

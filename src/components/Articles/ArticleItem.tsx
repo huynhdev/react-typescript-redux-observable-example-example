@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import device from '../../styles/utils/device'
 import { ArticleData } from '../../store/articles/types'
 
@@ -73,6 +74,12 @@ const ArticleWrapper = styled.div`
       transform: scale(1.03);
     }
   }
+  a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+  }
 `
 
 const Tag = styled.div`
@@ -86,6 +93,7 @@ export default function ArticleItem(article: ArticleData) {
   return (
     <ArticleWrapper>
       <ArticleInner>
+        <a href={`/articles/${article.id}`} />
         <ImageOuter>
           <Img imgUrl={article.cover_image_url} />
         </ImageOuter>

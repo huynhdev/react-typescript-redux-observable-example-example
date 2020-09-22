@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import device from '../../styles/utils/device'
 
 import { ArticleDetailData } from '../../store/articleDetail/types'
 import { Row, Column, Container } from '../Grid'
@@ -35,8 +36,11 @@ const Desc = styled.p`
   letter-spacing: 0.02em;
   color: #6d6d6d;
   margin: 0;
-  border-right: 2px solid rgba(1, 1, 1, 0.2);
+  @media ${device.laptop} {
+    border-right: 2px solid rgba(1, 1, 1, 0.2);
+  }
   padding-right: 50px;
+  margin-bottom: 20px;
 `
 
 interface ImageProps {
@@ -80,8 +84,8 @@ const ArticleDetail: React.FC<Props> = ({ article }) => {
     <Container>
       <Row>
         <ThumbailImg imgUrl={article.cover_image_url} />
-        <Tag as="a" href="#">
-          {article.tag}
+        <Tag as="a" href={`/tags/${article.tag.id}`}>
+          {article.tag.name}
         </Tag>
         <Title>{article.title}</Title>
         <Column md={8}>

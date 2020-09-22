@@ -8,7 +8,7 @@ type Props = {
   id: string
 }
 
-const ArticleShowContainer: React.FC<Props> = ({ id }) => {
+const ArticleDetailContainer: React.FC<Props> = ({ id }) => {
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -21,4 +21,4 @@ const ArticleShowContainer: React.FC<Props> = ({ id }) => {
   return <ArticleDetail article={article} />
 }
 
-export default ArticleShowContainer
+export default ArticleDetailContainer

@@ -31,7 +31,7 @@ export default function ArticlesContainer() {
     const article = articles?.dataByIds?.[articleId]
     return (
       <Column sm={12} md={6} key={article?.id}>
-        <ArticleItem {...article} />
+        <ArticleItem article={article} />
       </Column>
     )
   }

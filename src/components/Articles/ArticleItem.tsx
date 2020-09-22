@@ -9,6 +9,9 @@ const Desc = styled.div`
   position: relative;
   margin-top: -25px;
   padding: 0 30px;
+  a {
+    text-decoration: none;
+  }
   h3 {
     transition: all 0.7s;
     font-family: 'Bebas Neue', sans-serif;
@@ -33,6 +36,12 @@ const ImageOuter = styled.div`
   box-sizing: border-box;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
   overflow: hidden;
+  a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+  }
   img {
     transition: transform 0.7s;
   }
@@ -55,7 +64,10 @@ interface ImageProps {
 
 const Img = styled.div`
   background-image: url(${(props: ImageProps) => props.imgUrl});
-  height: 250px;
+  height: 150px;
+  @media ${device.tablet} {
+    height: 250px;
+  }
   width: 100%;
   background-size: cover;
   background-position: center;
@@ -74,12 +86,6 @@ const ArticleWrapper = styled.div`
       transform: scale(1.03);
     }
   }
-  a {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-  }
 `
 
 const Tag = styled.div`
@@ -89,19 +95,30 @@ const Tag = styled.div`
   text-transform: lowercase;
   color: #6d6d6d;
 `
-export default function ArticleItem(article: ArticleData) {
+
+type Props = {
+  article: ArticleData
+}
+
+const ArticleItem: React.FC<Props> = ({ article }) => {
   return (
     <ArticleWrapper>
       <ArticleInner>
-        <a href={`/articles/${article.id}`} />
         <ImageOuter>
+          <a href={`/articles/${article.id}`} />
           <Img imgUrl={article.cover_image_url} />
         </ImageOuter>
         <Desc>
-          <h3>{article.title}</h3>
-          <Tag>{article.tag}</Tag>
+          <a href={`/articles/${article.id}`}>
+            <h3>{article.title}</h3>
+          </a>
+          <a href={`/tags/${article.tag.id}`}>
+            <Tag>{article.tag.name}</Tag>
+          </a>
         </Desc>
       </ArticleInner>
     </ArticleWrapper>
   )
 }
+
+export default ArticleItem

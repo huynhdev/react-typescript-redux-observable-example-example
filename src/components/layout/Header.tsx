@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 
 const HeaderInner = styled.div`
   max-width: 1192px;
-  padding: 20px 0;
+  padding: 20px 20px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;

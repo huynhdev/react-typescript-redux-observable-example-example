@@ -1,8 +1,13 @@
+export interface TagData {
+  id: number
+  name: string
+}
+
 export interface ArticleData extends ApiResponse {
   id: number
   title: string
   desc: string
-  tag: string
+  tag: TagData
   created_at: string
   updated_at: string
 }
